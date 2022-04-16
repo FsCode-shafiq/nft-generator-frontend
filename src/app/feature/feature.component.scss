@@ -1,0 +1,37 @@
+.main{
+    background-color: #ffff;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .main-heading{
+        font-family: sans-serif;
+        font-size: 52pt;
+        font-weight: 700;
+    }
+    .feature{
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 24pt;
+        color:gray;
+        
+        margin-bottom: 2%;
+        img{
+            margin-left: 15px;
+            width: 6%;
+        }
+    }
+    .btn{
+        margin-top: 1%;
+        button{
+            border: 2px dashed black;
+            width: 250px;
+            font-size: large;
+        }
+    }
+}
