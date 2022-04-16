@@ -1,0 +1,32 @@
+.navbar-container{
+    padding: 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 5rem!important;
+    // background-color: #ffff;
+    .nav-logo{
+        width: 200px;
+        cursor: pointer;
+    }
+    .nav-controls{
+        width: 35%;
+        display: flex;
+        justify-content: space-around;
+        font-family: sans-serif;
+        .nav-controls-item{
+            color: #F3B105;
+            font-size: 1.1rem;
+            width: 100px;
+            text-align: center;
+            padding-right: 15px;
+        }
+        .nav-controls-item:hover{
+            color: #F3B105;
+            // font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+}
