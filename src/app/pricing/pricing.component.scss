@@ -1,0 +1,93 @@
+.main{
+    height: 70vh;
+    background-color: rgba(5, 8, 31, 0.795);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .pricing-panal{
+        width: 23%;
+        img{
+            width: 450px;
+        }
+    }
+    .limit-box{
+        margin-left: 7px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #ffff;
+        font-family: sans-serif;
+        border-radius: 10px;
+        width: 40%;
+        height: 40vh;
+        padding: 3%;
+        background-color: rgba(82, 82, 82, 0.432);
+        button{
+            margin-top: 40px;
+            right: -600px;
+            width:25%;
+            height: 3rem;
+            border: 1px solid #F3B105;
+            color: #F3B105;
+            background-color: rgba(128, 128, 128, 0.295);
+            font-size: large;
+        }
+        .heading{
+            font-size: 22pt;
+            font-weight: 700;
+        }
+        .line1{
+            margin-top: 2%;
+            font-size: 15pt;
+            color: gray!important;
+        }
+        .line2{
+            margin-top: 5%;
+            font-size: 18pt;
+
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(82, 80, 80);
+            padding-top: 2%;
+            padding-bottom: 1%;
+            margin-top: 1%;
+            border-radius: 5px;
+            width: 60%;
+            .price-tag{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: 3%;
+                .line{
+                    color: #ffff;
+                    font-size: 13pt;
+                }
+                .tage{
+                    border: 1px solid gray;
+                    margin: 0 1%;
+                    font-size: 11pt;
+                    width: auto;
+                    height: 20px;
+                    padding: 0% 1%;
+                    text-align: center;
+                    border-radius: 5px;
+                    background-color: gray;
+                    
+                }
+                .price{
+                    width: 60px;
+                    margin: 0 1%;
+                    background-color: #e0a306;
+                    text-align: center;
+                    color: black;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+    }
+
+}
