@@ -1,0 +1,53 @@
+.main{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    .company{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15%;
+        img{
+            width: 40%;
+        }
+        .line1{
+            color: #ffff;
+            font-size: 15pt;
+            margin-top: 5%;
+            font-family: sans-serif;
+        }
+        .line2{
+            color: gray;
+            font-size: 12pt;
+            font-family: sans-serif;
+        }
+    }
+    .terms-condition{
+        margin-right: 2%;
+        .heading{
+            font-size: 18pt;
+            font-family: sans-serif;
+            margin-bottom: 10%;
+        }
+        .line1{
+            color: rgb(167, 167, 167);
+            font-size: 12pt;
+        }
+        .line2{
+            color: rgb(167, 167, 167);
+            font-size: 12pt;
+            margin-top: 2%;
+        }
+        .line1:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .line2:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
