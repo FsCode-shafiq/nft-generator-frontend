@@ -1,25 +1,63 @@
 <div class="main">
-    <div class="heading">Login</div>
-    <form class="form">
-       <div class="item">
-         <div class="lable">Enter Email</div>
-         <div class="email-box">
-           <img src="../../assets/images/mail.svg"/>
-           <input type="email" placeholder="you@example.com"/>
-         </div>
-       </div>
-       <div class="item">
-         <div class="lable">Enter Password</div>
-         <div class="email-box">
-           <img src="../../assets/images/lock.svg"/>
-           <input id="password" type="password" placeholder="password"/>
-           <button mat-ripple type="button" (click)="showPassword()">Show</button>
-         </div>
-       </div>
-       <div class="forgot">Forgot your password?</div>
-       <button mat-button type="button">Login</button>
-    </form>
-    <div class="dont-have">Don't have an account? <span (click)="navToSignup()">Sign Up</span></div>
-    <div class="or">or</div>
-    <button class="google-btn" mat-button>Login with Google <img src="../../assets/images/icons8-google.svg" alt=""></button>
+  <div class="heading" *ngIf="!active">Login</div>
+  <div class="heading" *ngIf="active">Forgot Password</div>
+  <!-- Login -->
+  <form class="form" *ngIf="!active">
+    <div class="item">
+      <div class="lable">Enter Email</div>
+      <div class="email-box">
+        <img src="../../assets/images/mail.svg" />
+        <input type="email" placeholder="you@example.com" />
+      </div>
+    </div>
+    <div class="item">
+      <div class="lable">Enter Password</div>
+      <div class="email-box">
+        <img src="../../assets/images/lock.svg" />
+        <input id="password" type="password" placeholder="password" />
+        <button mat-ripple type="button" (click)="showPassword()">Show</button>
+      </div>
+    </div>
+    <div class="forgot" (click)="forgotFlow('get-email')">Forgot your password?</div>
+    <button mat-button type="button">Login</button>
+
+  </form>
+
+  <!-- Forgot password -->
+  <form class="form" *ngIf="active">
+
+    <div class="item" *ngIf="forgetFlow.email">
+      <div class="lable">Enter Email</div>
+      <div class="email-box">
+        <img src="../../assets/images/mail.svg" />
+        <input type="email" placeholder="you@example.com" />
+      </div>
+    </div>
+    <div class="item" *ngIf="forgetFlow.otp">
+      <div class="lable">Enter Otp</div>
+      <ng-otp-input class="otp-boxes" [config]="{length:5}"></ng-otp-input>
+    </div>
+    <div class="item" *ngIf="forgetFlow.password">
+      <div class="lable">Enter Password</div>
+      <div class="email-box">
+        <img src="../../assets/images/lock.svg" />
+        <input id="password" type="password" placeholder="password" />
+      </div>
+      <div class="lable">Enter Confirmed Password</div>
+      <div class="email-box">
+        <img src="../../assets/images/lock.svg" />
+        <input id="Cpassword" type="password" placeholder="password" />
+        <button mat-ripple type="button" (click)="showPassword()">Show</button>
+      </div>
+    </div>
+    <button mat-button type="button" *ngIf="forgetFlow.email" (click)="forgotFlow('otp')">Continue</button>
+    <button mat-button type="button" *ngIf="forgetFlow.otp" (click)="forgotFlow('password')">Verify</button>
+    <button mat-button type="button" *ngIf="forgetFlow.password" (click)="forgotFlow('password')">Submit</button>
+
+    <div class="goback" (click)="forgotFlow('reset')">Go back</div>
+  </form>
+  <div class="dont-have" *ngIf="!active">Don't have an account? <span (click)="navToSignup()">Sign Up</span></div>
+  <div class="or" *ngIf="!active">or</div>
+  <button class="google-btn" mat-button *ngIf="!active">Login with Google <img
+      src="../../assets/images/icons8-google.svg" alt=""></button>
 </div>

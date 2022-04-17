@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon'
+import { NgOtpInputModule } from  'ng-otp-input';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -48,6 +49,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    NgOtpInputModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule
   ],
