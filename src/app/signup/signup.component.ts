@@ -22,8 +22,6 @@ export class SignupComponent implements OnInit {
     document.getElementById('Cpassword')?.setAttribute('type', setVisibility);
   }
   navToLogin() {
-
     this.router.navigate(['login']);
-
   }
 }

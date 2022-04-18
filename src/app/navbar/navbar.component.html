@@ -1,9 +1,9 @@
-<div class="navbar-container">
+<div class="navbar-container" *ngIf="navbar">
     <img class="nav-logo" routerLink="" src="../../assets/images/logo.svg" />
-    <div class="nav-controls">
-        <div mat-button mat-ripple class="nav-controls-item" routerLink="dashboard">Dashboard</div>
-        <div mat-button mat-ripple  class="nav-controls-item" (click)="scrollto('feature')">Features</div>
-        <div mat-button mat-ripple  class="nav-controls-item" (click)="scrollto('pricing')">Pricing</div>
+    <div class="nav-controls" *ngIf="!userFlow">
+        <div mat-button mat-ripple class="nav-controls-item" routerLink="dashboard" >Dashboard</div>
+        <div mat-button mat-ripple  class="nav-controls-item" (click)="scrollto('feature')" >Features</div>
+        <div mat-button mat-ripple  class="nav-controls-item" (click)="scrollto('pricing')"  >Pricing</div>
         <div mat-button mat-ripple  class="nav-controls-item" routerLink="login">Login</div>
         <div mat-button mat-ripple  class="nav-controls-item" routerLink="signup">SignUp</div>
     </div>

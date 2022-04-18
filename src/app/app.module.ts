@@ -25,7 +25,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'dashboard' , component: DashboardComponent}
+  {path: 'dashboard' , component: DashboardComponent},
+  {path: '**' , component:HomeComponent},
 ]
 @NgModule({
   declarations: [
