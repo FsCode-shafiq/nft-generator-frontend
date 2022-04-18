@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule , Routes } from '@angular/router';
-import {MatRippleModule, MatCommonModule} from '@angular/material/core';
-import {MatButtonModule} from '@angular/material/button'
+import { RouterModule, Routes } from '@angular/router';
+import { MatRippleModule, MatCommonModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button'
 import { AppRoutingModule } from './app-routing.module';
-import {MatFormFieldModule} from '@angular/material/form-field'
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon'
-import { NgOtpInputModule } from  'ng-otp-input';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
+import { NgOtpInputModule } from 'ng-otp-input';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,13 +20,25 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { GeneratorComponent } from './generator/generator.component';
+import { MyCollectionsComponent } from './my-collections/my-collections.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { ViewCollectionComponent } from './view-collection/view-collection.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login' , component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'dashboard' , component: DashboardComponent},
-  {path: '**' , component:HomeComponent},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  {
+    path: 'dashboard', component: DashboardComponent,
+    children: [
+      { path: 'generator', component: GeneratorComponent },
+      {path: 'my-collections', component: MyCollectionsComponent},
+      {path: 'view-collection', component: ViewCollectionComponent},
+      {path: 'payments', component: PaymentsComponent}
+    ]
+  },
+  { path: '**', component: HomeComponent },
 ]
 @NgModule({
   declarations: [
@@ -39,7 +51,11 @@ const routes: Routes = [
     PricingComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    GeneratorComponent,
+    MyCollectionsComponent,
+    PaymentsComponent,
+    ViewCollectionComponent
   ],
   imports: [
     BrowserModule,

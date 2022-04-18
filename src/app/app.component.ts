@@ -30,7 +30,7 @@ export class AppComponent implements OnInit , OnDestroy {
       
       const {url} = events;
       switch (url) {
-        case "/dashboard":
+        case "/dashboard/generator":
           this.msg.changeMessage('hide-navbar')
           break;
         case '/':

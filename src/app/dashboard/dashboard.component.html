@@ -1,13 +1,22 @@
 <div class="dashboard-main-container">
-    <div class="dashboard-navigatio">
-        <div>logo</div>
-        <div>User Info</div>
-        <div>Generate NFt's</div>
-        <div>My Collections</div>
-        <div>Payments</div>
-        <div>Logout</div>
+    <div class="dashboard-navigation">
+        <button mat-button class="logo" routerLink="/">
+            <img  src="../../assets/images/logo.svg" />
+        </button>
+        <div mat-button class="user-info" >
+            <div>
+                shafiq-ur-rehman
+            </div>
+            <div>
+                4545453
+            </div>
+        </div>
+        <button mat-button  routerLink="generator" class="link"> <img src="../../assets/images/Engine.svg" alt="">Generate Nft's</button>
+        <button  mat-button  routerLink="my-collections" class="link"> <img src="../../assets/images/collection.svg" alt=""> My Collections</button>
+        <button  mat-button  routerLink="payments" class="link"> <img src="../../assets/images/payment.svg" alt=""> Payments</button>
+        <button  mat-button class="logout-btn" (click)="logout()">Logout <img src="../../assets/images/logout.svg" alt=""></button>
     </div>
     <div class="dashboard-components">
-        component
+        <router-outlet></router-outlet>
     </div>
 </div>
