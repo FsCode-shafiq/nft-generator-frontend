@@ -1,0 +1,173 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    color: #ffff;
+    height: 90vh;
+
+    .heading {
+        margin-top: 5%;
+        font-family: sans-serif;
+        font-weight: 400;
+        font-size: 24pt;
+    }
+
+    .form {
+        margin-top: 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 35vh;
+        height: 40vh;
+        padding: 20px;
+        background-color: rgba(25, 32, 82, 0.486);
+        border: 1px dashed #fff;
+        border-radius: 15px;
+
+        .item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            // align-items: center;
+            flex-direction: column;
+            ng-otp-input{
+                padding-top: 5%!important;
+                margin-bottom: 5%;
+                .ng-otp-input-wrapper[_ngcontent-tvr-c74] .otp-input[_ngcontent-tvr-c74] {
+                    background: rgba(25, 32, 82, 0.486) !important;
+                    border: none !important;
+                }
+            }
+
+            .email-box {
+                display: flex;
+                flex-direction: row !important;
+                justify-content: center;
+                align-items: center !important;
+                background-color: rgb(35, 42, 97);
+                border-radius: 5px;
+                padding: 0% 10px;
+                height: 5vh;
+                margin: 5% 0;
+
+                img {
+                    width: 8%;
+                    margin-right: 5px;
+
+                }
+
+                .lable {
+                    font-family: sans-serif;
+                    font-size: 13pt;
+                    margin-bottom: 20px;
+                }
+
+                input {
+                    outline: none;
+                    background-color: rgb(35, 42, 97);
+                    font-size: 15px;
+                    color: #ffff;
+                    margin-bottom: 20px;
+                    height: 5vh;
+                    border: none;
+                    border-radius: 5px;
+                    width: 100%;
+                    margin: 5% 0;
+                    padding: 0 5px;
+                }
+
+                ::placeholder {
+                    color: #ffff;
+                }
+
+                button {
+                    background: #81600c;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    height: 70%;
+                    width: 40%;
+                    font-size: 12pt;
+                    font-weight: bolder;
+                }
+            }
+        }
+
+        .forgot {
+            color: #F3B105;
+            font-family: sans-serif;
+            font-size: 12pt;
+            margin-bottom: 15%;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .goback {
+            color: #F3B105;
+            font-family: sans-serif;
+            font-size: 12pt;
+            margin-top: 15%;
+        }
+
+        .goback:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        button {
+            border: #F3B105 1px solid;
+            width: 60%;
+            background-color: #f3b00541;
+            font-family: sans-serif;
+            font-size: 13pt;
+            font-weight: 700;
+        }
+    }
+
+    .dont-have {
+        margin-top: 2%;
+        font-size: 13pt;
+
+        span {
+            color: #F3B105;
+        }
+
+        span:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .or {
+        margin: 1% 0%;
+        padding-bottom: 5px;
+        font-size: medium;
+        border-bottom: #F3B105 1px solid;
+        width: 12%;
+        text-align: center;
+    }
+
+    .google-btn {
+        border: #F3B105 1px solid;
+        width: 12%;
+        height: 5vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 13pt;
+        font-family: sans-serif;
+
+        img {
+            margin-left: 1%;
+            width: 10%;
+        }
+    }
+}
