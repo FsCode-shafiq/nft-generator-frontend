@@ -26,7 +26,6 @@ export class NavbarComponent implements OnInit , OnDestroy{
     }
 
     msgHandler = (msg:string) =>{
-      console.log(msg);
       switch (msg) {
         case 'hide-navbar':
           this.navbar = false;

@@ -1,7 +1,9 @@
 <div class="generator-main-container">
     <h1 class="heading">Generator</h1>
-    <div>
-        <form class="collection-info">
+
+    <!-- Information panal start -->
+    <div *ngIf="showInformation">
+        <form class="collection-info" >
             <div class="item">
                 <div>
                     <div class="lable">Enter Collection Name</div>
@@ -13,7 +15,7 @@
                 </div>
             </div>
             <div class="item2">
-                <div class="lable">Resolution</div>
+                <div class="lable">Resolution of Each Image</div>
                 <div class="resolution">
                     <input type='number' class="width"  placeholder="Enter width">
                     <input type='number'  placeholder="Enter height">
@@ -25,7 +27,131 @@
             </div>
         </form>
         <div class="bottom-btn">
-            <button mat-button>Next</button>
+            <button mat-button (click)="buttonMessage('proceed')">Next</button>
         </div>
+    </div>
+
+    <!-- Information panal end -->
+
+    <!-- layer panal start -->
+
+    <div class="layer-panal" *ngIf="!showInformation">
+        <div class="layer-controller">
+            <div class="add-layer">
+                <h2>Layers</h2>
+                <button mat-button><img src="../../assets/images/Plus Math.svg" alt=""> Add Layer</button>
+            </div>
+            <div class="layer-info">
+                <div class="first">
+                    <div></div>
+                    <div>Top Layer</div>
+                </div>
+                <div class="last">
+                    <div></div>
+                    <div>last Layer</div>
+                </div>
+            </div>
+            <div class="layer-tag-container">
+                <div class="single-layer" id="1">
+                    <input class="layer-heading"  value="Layer 1"/>
+                    <div class="delete-icon">
+                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                    </div>
+                </div>
+                <div class="single-layer">
+                    <input class="layer-heading" value="Layer 2"/>
+                    <div class="delete-icon">
+                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                    </div>
+                </div>
+                <div class="single-layer">
+                    <input class="layer-heading" value="Layer 3"/>
+                    <div class="delete-icon">
+                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                    </div>
+                </div>
+                <div class="single-layer">
+                    <input class="layer-heading" value="Layer 4"/>
+                    <div class="delete-icon">
+                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                    </div>
+                </div>
+                <div class="single-layer">
+                    <input class="layer-heading" value="Layer 5"/>
+                    <div class="delete-icon">
+                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+               <button mat-button (click)="buttonMessage('back')">Back</button>
+               <button mat-button>Next</button>
+            </div>
+        </div>
+        <div class="layer-editor">
+            <h2>Images</h2>
+            <div class="current-layer-tag">
+                <div>Current Layer: </div>
+                <div>Layer 1</div>
+            </div>
+            <div class="image-upload-container">
+                <div class="d-flex">
+                    <div class="image-container">
+                        <div class="image-box">
+                            <img src="../../assets/images/Blue.png" alt="">
+                            <div class="name">
+                                <div>bule.png</div>
+                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
+                            </div>
+                            <div class="rarity-box">
+                                <div>Rarity: </div>
+                                <input type="number" value="33"></div>
+                        </div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-box">
+                            <img src="../../assets/images/Orange.png" alt="">
+                            <div class="name">
+                                <div>Orange.png</div>
+                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
+                            </div>
+                            <div class="rarity-box">
+                                <div>Rarity: </div>
+                                <input type="number" value="33"></div>
+                        </div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-box">
+                            <img src="../../assets/images/Yellow.png" alt="">
+                            <div class="name">
+                                <div>Yellow.png</div>
+                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
+                            </div>
+                            <div class="rarity-box">
+                                <div>Rarity: </div>
+                                <input type="number" value="33"></div>
+                        </div>
+                    </div>
+                </div>
+               
+               
+                <div>
+                    <ngx-file-drop (onFileDrop)="dropped($event)">
+                        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                            Drag and Drop your file or
+                            <div type="button" (click)="openFileSelector()">Browse Files</div>
+                          </ng-template>
+                    </ngx-file-drop>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- layer panal end -->
+
+    <!-- generation screen start -->
+
+    <div>
+        
     </div>
 </div>
