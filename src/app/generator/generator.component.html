@@ -2,21 +2,30 @@
     <h1 class="heading">Generator</h1>
     <div>
         <form class="collection-info">
-            <div>
-                <div class="lable">Enter Collection Name</div>
-                <input type="text">
-                <div>Select type</div>
-                <input type="select">
+            <div class="item">
+                <div>
+                    <div class="lable">Enter Collection Name</div>
+                    <input type="text" placeholder="Enter Name">
+                </div>
+                <div>
+                    <div class="lable">Enter Collection Size</div>
+                    <input type='number' placeholder="Enter size">
+                </div>
             </div>
-            <div>
+            <div class="item2">
+                <div class="lable">Resolution</div>
+                <div class="resolution">
+                    <input type='number' class="width"  placeholder="Enter width">
+                    <input type='number'  placeholder="Enter height">
+                </div>
+            </div>
+            <div class="item3">
                 <div class="lable">Enter Discription</div>
-                <input type="text">
-            </div>
-            <div>
-                <div class="lable">Enter Collection Size</div>
-                <input type='number'>
-                
+                <textarea name="discription" id="dis" placeholder="Enter discription here..." cols="30" rows="10"></textarea>
             </div>
         </form>
+        <div class="bottom-btn">
+            <button mat-button>Next</button>
+        </div>
     </div>
 </div>
