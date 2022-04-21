@@ -13,11 +13,23 @@ export class UsersService {
     private http: HttpClient
   ) { }
 
-  signup(body:Object):Observable<any>{
-    return this.http.post(`${this.apiURL}/signup`,body);
+  signup(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/signup`, body);
   }
 
-  login(body:Object): Observable<any>{
+  login(body: Object): Observable<any> {
     return this.http.post(`${this.apiURL}/login`, body);
+  }
+
+  requestOtp(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/request-otp`, body);
+  }
+
+  verifyOtp(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/verify-otp`, body);
+  }
+
+  changePassword(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/update-password`, body);
   }
 }
