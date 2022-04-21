@@ -2,24 +2,24 @@
   <div class="heading" *ngIf="!active">Login</div>
   <div class="heading" *ngIf="active">Forgot Password</div>
   <!-- Login -->
-  <form class="form" *ngIf="!active">
+  <form class="form" *ngIf="!active" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
     <div class="item">
       <div class="lable">Enter Email</div>
       <div class="email-box">
         <img src="../../assets/images/mail.svg" />
-        <input type="email" placeholder="you@example.com" />
+        <input type="email" placeholder="you@example.com"   formControlName="email"/>
       </div>
     </div>
     <div class="item">
       <div class="lable">Enter Password</div>
       <div class="email-box">
         <img src="../../assets/images/lock.svg" />
-        <input id="password" type="password" placeholder="password" />
+        <input id="password" type="password" placeholder="password"  formControlName="password" />
         <button mat-ripple type="button" (click)="showPassword()">Show</button>
       </div>
     </div>
     <div class="forgot" (click)="forgotFlow('get-email')">Forgot your password?</div>
-    <button mat-button type="button">Login</button>
+    <button mat-button type="submit">Login</button>
 
   </form>
 

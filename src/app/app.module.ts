@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { NgOtpInputModule } from 'ng-otp-input';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import {ReactiveFormsModule} from '@angular/forms'
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -69,6 +72,9 @@ const routes: Routes = [
     MatIconModule,
     NgOtpInputModule,
     NgxFileDropModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule
   ],
