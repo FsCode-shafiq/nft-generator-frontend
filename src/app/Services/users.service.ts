@@ -7,29 +7,41 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  apiURL = 'http://localhost:3040/api/v1/user';
+  apiURL = 'http://localhost:3040/api/v1';
 
   constructor(
     private http: HttpClient
   ) { }
 
   signup(body: Object): Observable<any> {
-    return this.http.post(`${this.apiURL}/signup`, body);
+    return this.http.post(`${this.apiURL}/user/signup`, body);
   }
 
   login(body: Object): Observable<any> {
-    return this.http.post(`${this.apiURL}/login`, body);
+    return this.http.post(`${this.apiURL}/user/login`, body);
   }
 
   requestOtp(body: Object): Observable<any> {
-    return this.http.post(`${this.apiURL}/request-otp`, body);
+    return this.http.post(`${this.apiURL}/user/request-otp`, body);
   }
 
   verifyOtp(body: Object): Observable<any> {
-    return this.http.post(`${this.apiURL}/verify-otp`, body);
+    return this.http.post(`${this.apiURL}/user/verify-otp`, body);
   }
 
   changePassword(body: Object): Observable<any> {
-    return this.http.post(`${this.apiURL}/update-password`, body);
+    return this.http.post(`${this.apiURL}/user/update-password`, body);
+  }
+
+  googleSignIn(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/auth/google/signin`, body);
+  }
+
+  googleLogout(): Observable<any> {
+    return this.http.get(`${this.apiURL}/auth/google/logout`);
+  }
+
+  authenticateUser(body: Object): Observable<any> {
+    return this.http.post(`${this.apiURL}/user/authenticate-user`, body);
   }
 }

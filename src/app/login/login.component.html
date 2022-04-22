@@ -58,6 +58,6 @@
   </form>
   <div class="dont-have" *ngIf="!active">Don't have an account? <span (click)="navToSignup()">Sign Up</span></div>
   <div class="or" *ngIf="!active">or</div>
-  <button class="google-btn" mat-button *ngIf="!active">Login with Google <img
+  <button class="google-btn" mat-button *ngIf="!active" (click)="loginwithgoogle()">Login with Google <img
       src="../../assets/images/icons8-google.svg" alt=""></button>
 </div>

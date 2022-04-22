@@ -14,13 +14,14 @@ export class NavbarComponent implements OnInit , OnDestroy{
 
   navbar = true;
   userFlow = false;
+  isLoggedIn = false;
   constructor(
     private vps: ViewportScroller,
     private msg: MessageServiceService
     ) { }
     
     ngOnInit(): void {
-      
+      this.setBtn();
       this.msg.currentMsg.pipe(takeUntil(this.unsubscribe)).subscribe(msg=> this.msgHandler(msg));
       
     }
@@ -37,10 +38,23 @@ export class NavbarComponent implements OnInit , OnDestroy{
         case 'hide-nav-controls':
           this.userFlow = true;
           break;
+        case 'loggedIn':
+          this.isLoggedIn = true
+          break;
+        case 'logout':
+          this.isLoggedIn = false;
+          break;
         default:
           break;
       }
 
+    }
+
+    setBtn(){
+      let isLoggedin = localStorage.getItem('isLoggedin');
+      if(isLoggedin){
+        this.isLoggedIn = true;
+      }
     }
     
     scrollto (id:string){
