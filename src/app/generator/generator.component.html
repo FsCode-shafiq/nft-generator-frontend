@@ -51,8 +51,8 @@
                     <div>last Layer</div>
                 </div>
             </div>
-            <div class="layer-tag-container" [formGroup]="generatorForm">
-                <div formArrayName="layers" *ngFor="let item of generatorForm.get('layers').controls,  let i=index" >
+            <div class="layer-tag-container" [formGroup]="generatorForm" >
+                <div formArrayName="layers" *ngFor="let item of generatorForm.get('layers').controls,  let i=index" (click)="selectLayer(i)" >
 
                     <div class="single-layer" [formGroupName]="i"   >
                         
@@ -70,44 +70,20 @@
                <button mat-button (click)="buttonMessage('show-generating-screen')">Next</button>
             </div>
         </div>
-        <div class="layer-editor">
+        <div class="layer-editor" >
             <h2>Images</h2>
             <div class="current-layer-tag">
                 <div>Current Layer: </div>
-                <div>Layer 1</div>
+                <div>{{this.generatorForm.value.layers[this.selectedLayer]?.layerName}}</div>
             </div>
-            <div class="image-upload-container">
-                <div class="d-flex">
-                    <div class="image-container">
-                        <div class="image-box">
-                            <img src="../../assets/images/Blue.png" alt="">
+            <div class="image-upload-container" *ngIf="generatorForm.value.layers.length">
+                <div class="d-flex" [formGroup]="generatorForm">
+                    <div class="image-container" *ngFor="let img of this.generatorForm.value.layers[this.selectedLayer]?.images.value  let i=index" >
+                        <div class="image-box" >
+                            <img [src]='img.source' alt="">
                             <div class="name">
-                                <div>bule.png</div>
-                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
-                            </div>
-                            <div class="rarity-box">
-                                <div>Rarity: </div>
-                                <input type="number" value="33"></div>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="image-box">
-                            <img src="../../assets/images/Orange.png" alt="">
-                            <div class="name">
-                                <div>Orange.png</div>
-                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
-                            </div>
-                            <div class="rarity-box">
-                                <div>Rarity: </div>
-                                <input type="number" value="33"></div>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="image-box">
-                            <img src="../../assets/images/Yellow.png" alt="">
-                            <div class="name">
-                                <div>Yellow.png</div>
-                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="">
+                                <div>{{img.imageName}}</div>
+                                <img class="delete-icon" src="../../assets/images/delete.svg" alt="" (click)="deletImage(this.selectedLayer, i)">
                             </div>
                             <div class="rarity-box">
                                 <div>Rarity: </div>

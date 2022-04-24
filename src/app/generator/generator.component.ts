@@ -20,6 +20,8 @@ export class GeneratorComponent implements OnInit {
   files: NgxFileDropEntry[] = [];
   generatorForm: FormGroup | any;
   layers!: FormArray;
+  selectedLayer:any = 0;
+  images!: any;
   constructor(
     private msg: MessageServiceService,
     private fb: FormBuilder,
@@ -27,7 +29,7 @@ export class GeneratorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.setAttr();
     this.msg.currentMsg.pipe(takeUntil(this.unsubscribe)).subscribe(msg => this.msgHandler(msg));
   }
@@ -102,7 +104,14 @@ export class GeneratorComponent implements OnInit {
 
           fileReader.onload = () => {
             // console.log(fileReader.result);
-            
+            this.images = this.generatorForm.get('layers') as FormArray;
+            this.images.value[this.selectedLayer].images.push(
+              this.fb.group({
+                imageName: file.name,
+                source: fileReader.result
+              })
+            )
+
           }
 
           fileReader.readAsDataURL(file)
@@ -114,6 +123,15 @@ export class GeneratorComponent implements OnInit {
         console.log(droppedFile.relativePath, fileEntry);
       }
     }
+  }
+
+  selectLayer(i:number){
+    this.selectedLayer = i;
+  }
+
+  deletImage(layerIndex:number, imageIndex:number){
+    const images: FormArray = this.generatorForm.controls.layers.get(`${layerIndex}`).value.images;
+    images.removeAt(imageIndex);
   }
 
 
