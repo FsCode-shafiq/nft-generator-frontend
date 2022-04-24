@@ -1,45 +1,45 @@
-<div class="generator-main-container">
+<form class="generator-main-container" [formGroup]="generatorForm">
     <h1 class="heading">Generator</h1>
 
     <!-- Information panal start -->
-    <div *ngIf="showInformation">
+    <!-- <div *ngIf="showInformation && !showGenartingScreen">
         <form class="collection-info" >
             <div class="item">
                 <div>
                     <div class="lable">Enter Collection Name</div>
-                    <input type="text" placeholder="Enter Name">
+                    <input type="text" placeholder="Enter Name" formControlName="collectionName">
                 </div>
                 <div>
                     <div class="lable">Enter Collection Size</div>
-                    <input type='number' placeholder="Enter size">
+                    <input type='number' placeholder="Enter size" formControlName="collectionSize">
                 </div>
             </div>
             <div class="item2">
                 <div class="lable">Resolution of Each Image</div>
                 <div class="resolution">
-                    <input type='number' class="width"  placeholder="Enter width">
-                    <input type='number'  placeholder="Enter height">
+                    <input type='number' class="width"  placeholder="Enter width" formControlName="width">
+                    <input type='number'  placeholder="Enter height" formControlName="height">
                 </div>
             </div>
             <div class="item3">
                 <div class="lable">Enter Discription</div>
-                <textarea name="discription" id="dis" placeholder="Enter discription here..." cols="30" rows="10"></textarea>
+                <textarea name="discription" id="dis" placeholder="Enter discription here..." cols="30" rows="10" formControlName="discription"></textarea>
             </div>
         </form>
         <div class="bottom-btn">
             <button mat-button (click)="buttonMessage('proceed')">Next</button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Information panal end -->
 
     <!-- layer panal start -->
-
-    <div class="layer-panal" *ngIf="!showInformation">
+    <div class="layer-panal">
+    <!-- <div class="layer-panal" *ngIf="!showInformation && !showGenartingScreen"> -->
         <div class="layer-controller">
             <div class="add-layer">
                 <h2>Layers</h2>
-                <button mat-button><img src="../../assets/images/Plus Math.svg" alt=""> Add Layer</button>
+                <button mat-button (click)="addLayer()"><img src="../../assets/images/Plus Math.svg" alt=""> Add Layer</button>
             </div>
             <div class="layer-info">
                 <div class="first">
@@ -51,41 +51,23 @@
                     <div>last Layer</div>
                 </div>
             </div>
-            <div class="layer-tag-container">
-                <div class="single-layer" id="1">
-                    <input class="layer-heading"  value="Layer 1"/>
-                    <div class="delete-icon">
-                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+            <div class="layer-tag-container" [formGroup]="generatorForm">
+                <div formArrayName="layers" *ngFor="let item of generatorForm.get('layers').controls,  let i=index" >
+
+                    <div class="single-layer" [formGroupName]="i"   >
+                        
+                            <input class="layer-heading"    [(value)]="item.layerName" formControlName="layerName" />
+                            <div class="delete-icon" (click)="deleteLayer(i)">
+                                <img src="../../assets/images/delete.svg" alt="" mat-ripple>
+                            </div>
+                        
                     </div>
                 </div>
-                <div class="single-layer">
-                    <input class="layer-heading" value="Layer 2"/>
-                    <div class="delete-icon">
-                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
-                    </div>
-                </div>
-                <div class="single-layer">
-                    <input class="layer-heading" value="Layer 3"/>
-                    <div class="delete-icon">
-                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
-                    </div>
-                </div>
-                <div class="single-layer">
-                    <input class="layer-heading" value="Layer 4"/>
-                    <div class="delete-icon">
-                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
-                    </div>
-                </div>
-                <div class="single-layer">
-                    <input class="layer-heading" value="Layer 5"/>
-                    <div class="delete-icon">
-                        <img src="../../assets/images/delete.svg" alt="" mat-ripple>
-                    </div>
-                </div>
+                
             </div>
             <div class="btn-container">
                <button mat-button (click)="buttonMessage('back')">Back</button>
-               <button mat-button>Next</button>
+               <button mat-button (click)="buttonMessage('show-generating-screen')">Next</button>
             </div>
         </div>
         <div class="layer-editor">
@@ -136,7 +118,7 @@
                
                
                 <div>
-                    <ngx-file-drop (onFileDrop)="dropped($event)">
+                    <ngx-file-drop (onFileDrop)="dropped($event)" accept=".png" >
                         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                             Drag and Drop your file or
                             <div type="button" (click)="openFileSelector()">Browse Files</div>
@@ -149,9 +131,23 @@
 
     <!-- layer panal end -->
 
+    <!-- generating dailogue start -->
+
+    <!-- <div class="generating-dailogue" *ngIf="showGenartingScreen">
+        <div class="spinner-container">
+            <div class="spin">
+                
+            </div>
+            <img src="../../assets/images/icon.svg" alt="">
+            <p>please wait generating nft's....</p>
+        </div>
+    </div> -->
+
+    <!-- generating dailogue end -->
+
     <!-- generation screen start -->
 
     <div>
         
     </div>
-</div>
+</form>
