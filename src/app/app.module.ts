@@ -12,6 +12,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import {ReactiveFormsModule} from '@angular/forms'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxCanvasModule } from 'ngx-canvas';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -76,6 +77,7 @@ const routes: Routes = [
     MatSnackBarModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    NgxCanvasModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [],

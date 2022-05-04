@@ -1,8 +1,8 @@
 <form class="generator-main-container" [formGroup]="generatorForm">
     <h1 class="heading">Generator</h1>
-
+    <canvas #canvas style="display: none;"></canvas>
     <!-- Information panal start -->
-    <!-- <div *ngIf="showInformation && !showGenartingScreen">
+    <div *ngIf="showInformation && !showGenartingScreen">
         <form class="collection-info" >
             <div class="item">
                 <div>
@@ -29,13 +29,13 @@
         <div class="bottom-btn">
             <button mat-button (click)="buttonMessage('proceed')">Next</button>
         </div>
-    </div> -->
+    </div>
 
     <!-- Information panal end -->
 
     <!-- layer panal start -->
-    <div class="layer-panal">
-    <!-- <div class="layer-panal" *ngIf="!showInformation && !showGenartingScreen"> -->
+    
+    <div class="layer-panal" *ngIf="!showInformation && !showGenartingScreen">
         <div class="layer-controller">
             <div class="add-layer">
                 <h2>Layers</h2>
@@ -67,10 +67,11 @@
             </div>
             <div class="btn-container">
                <button mat-button (click)="buttonMessage('back')">Back</button>
-               <button mat-button (click)="buttonMessage('show-generating-screen')">Next</button>
+               <button mat-button (click)="buttonMessage('show-generating-screen')">Generate</button>
             </div>
         </div>
         <div class="layer-editor" >
+            
             <h2>Images</h2>
             <div class="current-layer-tag">
                 <div>Current Layer: </div>
@@ -109,7 +110,8 @@
 
     <!-- generating dailogue start -->
 
-    <!-- <div class="generating-dailogue" *ngIf="showGenartingScreen">
+    <div class="generating-dailogue" *ngIf="showGenartingScreen">
+        
         <div class="spinner-container">
             <div class="spin">
                 
@@ -117,7 +119,7 @@
             <img src="../../assets/images/icon.svg" alt="">
             <p>please wait generating nft's....</p>
         </div>
-    </div> -->
+    </div>
 
     <!-- generating dailogue end -->
 

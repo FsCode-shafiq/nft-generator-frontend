@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
 import { UsersService } from './users.service';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +35,15 @@ export class GeneralService {
       this.router.navigate(['login']);
     }
 
+  }
+
+  _deepClone(form:any){
+    let ret:any = {};
+    ret = _.cloneDeep(form.value);
+    ret.layers.forEach((layer:any)=>{
+      layer.images = layer.images.value
+    })
+    return ret
   }
 
 }
